@@ -18,8 +18,8 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>넘카오스 4×6 | Soosooland</title>
-<meta name="description" content="NumChaos 4×6 — Fruits multiply, bombs destroy!">
+<title>넘카오스 4×4 | Soosooland</title>
+<meta name="description" content="NumChaos 4×4 — Fruits multiply, bombs destroy!">
 <link rel="canonical" href="https://soosooland.com/numchaos/numchaos4-ko.html">
 <link rel="stylesheet" href="https://soosooland.com/css/protection.css">
 <script src="https://soosooland.com/js/protection.js"></script>
@@ -72,7 +72,7 @@
 
   #col-buttons { display: flex; gap: 4px; margin-bottom: 4px; }
   .col-btn {
-    width: 56px; height: 32px; border-radius: 8px; border: none;
+    width: 72px; height: 32px; border-radius: 8px; border: none;
     background: #2a2a4a; color: #aaa; font-size: 1.1rem;
     cursor: pointer; transition: background 0.2s;
   }
@@ -81,13 +81,13 @@
 
   #grid {
     display: grid;
-    grid-template-columns: repeat(4, 56px);
-    grid-template-rows: repeat(6, 56px);
+    grid-template-columns: repeat(4, 72px);
+    grid-template-rows: repeat(4, 72px);
     gap: 4px; background: #111; padding: 6px;
     border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   }
   .cell {
-    width: 56px; height: 56px; border-radius: 8px; background: #222;
+    width: 72px; height: 72px; border-radius: 8px; background: #222;
     display: flex; align-items: center; justify-content: center;
     font-size: 1.2rem; font-weight: bold; transition: background 0.15s;
   }
@@ -159,7 +159,7 @@
 <div id="start-screen">
   <button class="back-button" onclick="location.href='index.html'">←</button>
   <h1>넘카오스</h1>
-  <div style="font-size:2rem;">4×6</div>
+  <div style="font-size:2rem;">4×4</div>
   <p class="subtitle">과일은 곱하고 폭탄은 나누는<br>혼돈의 낙하 퍼즐</p>
   <div class="guide">
     <div><span class="emoji">🍎</span><span>×2</span></div>
@@ -177,7 +177,7 @@
 </div>
 
 <button class="back-button" onclick="location.href='index.html'">←</button>
-<h1>💥 넘카오스</h1>
+<h1>💥 넘카오스 4x4</h1>
 <div id="player-id"></div>
 <div id="score-area">점수: <span id="score">0</span></div>
 
@@ -212,7 +212,7 @@
 <button id="ranking-btn" style="margin-top:14px; padding:10px 28px; border-radius:10px; border:none; background:#2a2a4a; color:#f0c040; font-size:0.95rem; cursor:pointer;">🏆 순위 보기</button>
 
 <div id="ranking-area" style="display:none;">
-  <h3>🏆 Top 10 · 넘카오스 5×5</h3>
+  <h3>🏆 Top 10 · 넘카오스 4×4</h3>
   <div id="ranking-list"></div>
 </div>
 
@@ -242,13 +242,13 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const ROWS = 6, COLS = 4;
+const ROWS = 4, COLS = 4;
 const MODE = 'numchaos4x6';
 const QUEUE_SIZE = 3;
 const CONSONANTS = 'BCDFGHJKLMNPQRSTVWXZ';
 const DIGITS = '23456789';
 
-const NUMBER_CARDS = [2, 4, 8];
+const NUMBER_CARDS = [2, 4];
 const NUMBER_WEIGHTS = [50, 30, 12, 8];
 
 const FRUIT_CARDS = [
