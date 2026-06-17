@@ -243,13 +243,13 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const ROWS = 4, COLS = 4;
-const MODE = 'numchaos4x6';
+const MODE = 'numchaos4x4';
 const QUEUE_SIZE = 3;
 const CONSONANTS = 'BCDFGHJKLMNPQRSTVWXZ';
 const DIGITS = '23456789';
 
 const NUMBER_CARDS = [2, 4];
-const NUMBER_WEIGHTS = [50, 30, 12, 8];
+const NUMBER_WEIGHTS = [50, 50];
 
 const FRUIT_CARDS = [
   { emoji: '🍎', mult: 2 },
