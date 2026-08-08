@@ -26,7 +26,7 @@ All games are registered copyrights. Unauthorized copying or redistribution is p
 |**넘넘**        |숫자(2·4·8·16) <br> 특수 카드 혼합| 🍎×2 🍒×4 🍇×8|-|4×4 / 5×5 / 6×6|
 |**넘스탬프**        |숫자(2·4·8) <br> 특수 카드 혼합|🔥÷2 💥÷4 ⚡소멸 <br>🍎×2 🍒×4 🍇×8|바위| 3×3/4×4/5×5|
                          
- 
+---   
 ## NumStone Series (English)
 
 NumStone is a strategic puzzle game where you drop number cards onto a grid and merge matching numbers. No time pressure — just think, drop, and chain your way to bigger numbers.
