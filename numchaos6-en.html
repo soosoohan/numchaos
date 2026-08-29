@@ -110,12 +110,14 @@
   .queue-label { font-size: 0.75rem; color: #888; margin-bottom: 4px; text-align: center; }
   .queue-slot { display: flex; flex-direction: column; align-items: center; }
   .queue-card {
-    width: 56px; height: 56px; border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.2rem; font-weight: bold;
-    background: #444; color: #888; transition: all 0.3s;
-  }
-  .queue-card.active { transform: scale(1.1); box-shadow: 0 0 12px rgba(240,192,64,0.6); }
+  width: 56px; height: 56px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: bold;
+}
+.queue-card.number-card { font-size: 1.2rem; background: #3a3a3a; color: #ddd; }
+.queue-card.emoji-card { font-size: 1.6rem; background: #3a3a3a; color: #fff; }
+.queue-card.active.number-card { background: #555; color: #eee; }
+.queue-card.active.emoji-card { background: #555; color: #fff; }
 
   #col-buttons { display: flex; gap: 4px; margin-bottom: 4px; }
    .col-btn {
@@ -475,25 +477,10 @@ function updateQueueUI() {
   for (let i = 0; i < QUEUE_SIZE; i++) {
     const el = document.getElementById(`q${i}`); if (!el) continue;
     const card = queue[i];
-    el.className = 'queue-card' + (i===0 ? ' active' : '');
-    if (!card) { el.textContent = ''; el.style.background = '#333'; continue; }
-
-    if (isFruit(card)) {
-      el.textContent = card.fruit.emoji;
-      el.style.background = i===0 ? (FRUIT_BG[card.fruit.emoji] || '#555') : '#333';
-      el.style.color = '#fff';
-      el.style.fontSize = '1.6rem';
-    } else if (isBomb(card)) {
-      el.textContent = card.bomb.emoji;
-      el.style.background = i===0 ? (BOMB_BG[card.bomb.emoji] || '#444') : '#333';
-      el.style.color = '#fff';
-      el.style.fontSize = '1.6rem';
-    } else {
-      el.textContent = card.value;
-      el.style.background = i===0 ? '#555' : '#333';
-      el.style.color = i===0 ? '#eee' : '#777';
-      el.style.fontSize = '1.2rem';
-    }
+    const type = (isFruit(card) || isBomb(card)) ? 'emoji-card' : 'number-card';
+    el.className = 'queue-card' + (i===0 ? ' active' : '') + ' ' + type;
+    if (!card) { el.textContent = ''; continue; }
+    el.textContent = isFruit(card) ? card.fruit.emoji : isBomb(card) ? card.bomb.emoji : card.value;
   }
 }
 
