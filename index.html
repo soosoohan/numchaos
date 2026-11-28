@@ -73,7 +73,7 @@
     background: #145454;
     color: #eee;
     min-height: 100vh;
-    padding: 30px 20px 60px;
+    padding: 20px;
   }
 
 .toolbar {
@@ -114,10 +114,8 @@
     cursor: pointer;
     z-index: 100;
     gap: 4px;
-    transition: background 0.2s;
   }
 
-  .lang-ko, .lang-en { transition: opacity 0.2s; }
   body.en .lang-ko { display: none; }
   body.ko .lang-en { display: none; }
 
@@ -218,6 +216,10 @@
 header { display: flow-root; height: auto !important; }
 .banner-title { height: auto !important; }
 .banner-title img { position: static !important; float: none !important; }
+@media (max-width: 480px) {  
+.back-button { width: 40px;height: 40px;}
+body { padding: 10px; }
+}
 
 </style>
 </head>
